@@ -6,6 +6,12 @@ describe 'main.array_challenge' do
   end
 
   it 'returns an array' do
-    expect(array_challenge('something')).to be_an(Array)
+    result = array_challenge('whatever input')
+    expect(result).to be_an(Array)
+  end
+
+  it 'returns the given argument if it is a 1-dimension array' do
+    result = array_challenge([1,2,3])
+    expect(result).to eq([1,2,3])
   end
 end
