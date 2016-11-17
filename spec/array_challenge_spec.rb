@@ -19,4 +19,9 @@ describe 'main.array_challenge' do
     result = array_challenge([1, [2,3], 4])
     expect(result).to eq([1, 2, 3, 4])
   end
+
+  it 'returns a flattened array for a 3 or more dimension array' do
+    result = array_challenge([1, [2, [3, [4, 5]], 6], 7, [8, 9]])
+    expect(result).to eq([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  end
 end

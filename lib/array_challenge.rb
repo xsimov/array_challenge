@@ -1,14 +1,16 @@
 def array_challenge(arg)
   return [] if !arg.is_a?(Array)
-  output_array = []
-  arg.each do |element|
-    if element.is_a?(Array)
-      element.each do |inner_element|
-        output_array << inner_element
-      end
-    else
-      output_array << element
-    end
+  arg.each_with_object([]) do |element, output_array|
+    flatten(element, output_array)
   end
-  output_array
+end
+
+def flatten(element, output_array)
+  if element.is_a?(Array)
+    element.each do |inner_element|
+      flatten(inner_element, output_array)
+    end
+  else
+    output_array << element
+  end
 end
