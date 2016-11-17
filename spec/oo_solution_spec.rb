@@ -1,27 +1,23 @@
-require_relative '../lib/my_flatten'
+require_relative '../lib/oo_solution'
 
-describe 'Functional approach (main.my_flatten)' do
-  it 'raises an argument error if no argument is present' do
-    expect { my_flatten() }.to raise_error(ArgumentError)
-  end
-
+describe 'Array#my_flatten' do
   it 'returns an array' do
-    result = my_flatten('whatever input')
+    result = [].my_flatten
     expect(result).to be_an(Array)
   end
 
   it 'returns the given argument if it is a 1-dimension array' do
-    result = my_flatten([1, 2, 3])
+    result = [1, 2, 3].my_flatten
     expect(result).to eq([1, 2, 3])
   end
   
   it 'returns a flattened array for a 2 dimension array' do
-    result = my_flatten([1, [2,3], 4])
+    result = [1, [2, 3], 4].my_flatten
     expect(result).to eq([1, 2, 3, 4])
   end
 
   it 'returns a flattened array for a 3 or more dimension array' do
-    result = my_flatten([1, [2, [3, [4, 5]], 6], 7, [8, 9]])
+    result = [1, [2, [3, [4, 5]], 6], 7, [8, 9]].my_flatten
     expect(result).to eq([1, 2, 3, 4, 5, 6, 7, 8, 9])
   end
 end
